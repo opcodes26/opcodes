@@ -17,20 +17,26 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-size: '22'
+          node-version: '22'
           cache: 'npm'
 
-      - name: Install Dependencies
+      - name: Install Frontend Dependencies
         run: npm ci
 
-      - name: Run Typecheck
+      - name: Run Frontend Typecheck
         run: npm run typecheck
 
-      - name: Run Lint
+      - name: Run Frontend Lint
         run: npm run lint
 
-      - name: Run Tests
+      - name: Run Frontend Tests
         run: npm run test
 
-      - name: Run Build
+      - name: Run Frontend Build
         run: npm run build
+
+      - name: Install Functions Dependencies
+        run: npm ci --prefix functions
+
+      - name: Run Functions Build
+        run: npm run build --prefix functions

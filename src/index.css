@@ -1,1 +1,121 @@
 @import "tailwindcss";
+
+:root {
+  /* Declaração de suporte a color schemes (evita FOUC e ajusta scrollbars nativas) */
+  color-scheme: dark;
+
+  /* Raw Colors - Design System OP Codes */
+  --raw-bg-base: #08090A;
+  --raw-bg-surface: #121417;
+  --raw-bg-surface-hover: #1A1D22;
+  
+  --raw-text-primary: #F3F4F6;
+  --raw-text-secondary: #9CA3AF;
+  
+  --raw-accent-mint: #10B981;
+  --raw-accent-mint-glow: rgba(16, 185, 129, 0.15);
+  --raw-accent-cyan: #06B6D4;
+  --raw-accent-cyan-glow: rgba(6, 182, 212, 0.15);
+  
+  --raw-border-subtle: rgba(255, 255, 255, 0.06);
+  --raw-border-interactive: rgba(255, 255, 255, 0.15);
+
+  /* Semantic Mappings */
+  --color-bg-base: var(--raw-bg-base);
+  --color-bg-surface: var(--raw-bg-surface);
+  --color-bg-surface-hover: var(--raw-bg-surface-hover);
+  
+  --color-text-primary: var(--raw-text-primary);
+  --color-text-secondary: var(--raw-text-secondary);
+  
+  --color-accent-primary: var(--raw-accent-mint);
+  --color-accent-primary-glow: var(--raw-accent-mint-glow);
+  --color-accent-secondary: var(--raw-accent-cyan);
+  --color-accent-secondary-glow: var(--raw-accent-cyan-glow);
+  
+  --color-border: var(--raw-border-subtle);
+  --color-border-hover: var(--raw-border-interactive);
+
+  /* Glassmorphism Token */
+  --glass-bg: rgba(18, 20, 23, 0.75);
+  --glass-backdrop: blur(12px);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Spacing Grid (Sizer) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+
+  /* Font Families */
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Custom Scrollbar Colors */
+  --color-scrollbar-track: var(--raw-bg-base);
+  --color-scrollbar-thumb: var(--raw-bg-surface-hover);
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  scrollbar-width: auto; /* Para forçar renderização moderna no macOS */
+}
+
+@theme {
+  --color-bg-base: var(--color-bg-base);
+  --color-bg-surface: var(--color-bg-surface);
+  --color-bg-surface-hover: var(--color-bg-surface-hover);
+  
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  
+  --color-accent-mint: var(--raw-accent-mint);
+  --color-accent-cyan: var(--raw-accent-cyan);
+  --color-accent-emerald: #059669;
+  
+  --color-accent-primary: var(--color-accent-primary);
+  --color-accent-primary-glow: var(--color-accent-primary-glow);
+  --color-accent-secondary: var(--color-accent-secondary);
+  --color-accent-secondary-glow: var(--color-accent-secondary-glow);
+  
+  --color-border-subtle: var(--color-border);
+  --color-border-interactive: var(--color-border-hover);
+  
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* Global Reset & Base Elements styles */
+html {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  accent-color: var(--color-accent-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-block-size: 100dvb;
+  overflow-x: clip; /* Evita overflow horizontal indesejado */
+}
+
+/* Custom Scrollbar fallback for older WebKit engines */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
+    border-radius: 5px;
+    border: 2px solid var(--color-scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-hover);
+  }
+}

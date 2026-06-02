@@ -51,3 +51,6 @@ Thumbs.db
 .claude/
 .gemini/
 .harmofin/
+
+# Functions build output
+functions/lib/
