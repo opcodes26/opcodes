@@ -54,3 +54,5 @@ Thumbs.db
 
 # Functions build output
 functions/lib/
+
+.firebase/
