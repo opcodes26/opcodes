@@ -4,14 +4,14 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded font-sans text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-mint disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-lg font-sans text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
   {
     variants: {
       variant: {
-        primary: 'bg-accent-mint text-[#08090A] shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:bg-[#12d394] hover:shadow-[0_0_20px_rgba(16,185,129,0.35)]',
-        secondary: 'bg-[#121417] text-[#F3F4F6] border border-border-subtle hover:bg-bg-surface-hover hover:border-border-interactive',
-        outline: 'border border-border-subtle bg-transparent text-[#F3F4F6] font-mono hover:border-border-interactive hover:bg-bg-surface-hover/50',
-        ghost: 'text-text-secondary hover:text-text-primary hover:bg-bg-surface-hover/50',
+        primary: 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold shadow-[0_0_18px_rgba(59,130,246,0.35)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] hover:brightness-110 border border-cyan-400/30',
+        secondary: 'bg-[#121418] text-[#FFFFFF] border border-white/[0.08] hover:bg-[#181B22] hover:border-blue-500/40 shadow-sm',
+        outline: 'border border-white/10 bg-transparent text-[#FFFFFF] font-mono hover:border-cyan-400/40 hover:bg-white/[0.04]',
+        ghost: 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]',
       },
       size: {
         default: 'h-10 px-4 py-2',

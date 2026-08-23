@@ -2,10 +2,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { useSubmitProposal } from '../hooks/useSubmitProposal'
+import * as supabaseLib from '../lib/supabase'
 
 describe('useSubmitProposal', () => {
   beforeEach(() => {
-    vi.stubGlobal('fetch', vi.fn())
+    vi.restoreAllMocks()
   })
 
   afterEach(() => {
@@ -21,11 +22,7 @@ describe('useSubmitProposal', () => {
   })
 
   it('should successfully submit a valid proposal', async () => {
-    const mockResponse = {
-      ok: true,
-      json: async () => ({ success: true, message: 'Proposta recebida com sucesso!' }),
-    }
-    vi.mocked(fetch).mockResolvedValueOnce(mockResponse as any)
+    const submitSpy = vi.spyOn(supabaseLib, 'submitLead').mockResolvedValueOnce({ success: true })
 
     const { result } = renderHook(() => useSubmitProposal())
 
@@ -51,10 +48,12 @@ describe('useSubmitProposal', () => {
     expect(result.current.isPending).toBe(false)
     expect(result.current.error).toBeNull()
     expect(result.current.isSuccess).toBe(true)
-    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(submitSpy).toHaveBeenCalledTimes(1)
   })
 
   it('should set error state for invalid data input', async () => {
+    const submitSpy = vi.spyOn(supabaseLib, 'submitLead')
+
     const { result } = renderHook(() => useSubmitProposal())
 
     const invalidData = {
@@ -77,16 +76,14 @@ describe('useSubmitProposal', () => {
     expect(result.current.isPending).toBe(false)
     expect(result.current.error).not.toBeNull()
     expect(result.current.isSuccess).toBe(false)
-    expect(fetch).not.toHaveBeenCalled()
+    expect(submitSpy).not.toHaveBeenCalled()
   })
 
   it('should set error state when the API returns an error', async () => {
-    const mockResponse = {
-      ok: false,
-      status: 400,
-      json: async () => ({ success: false, error: 'Dados inválidos do servidor' }),
-    }
-    vi.mocked(fetch).mockResolvedValueOnce(mockResponse as any)
+    const submitSpy = vi.spyOn(supabaseLib, 'submitLead').mockResolvedValueOnce({
+      success: false,
+      error: 'Dados inválidos do servidor',
+    })
 
     const { result } = renderHook(() => useSubmitProposal())
 
@@ -110,6 +107,6 @@ describe('useSubmitProposal', () => {
     expect(result.current.isPending).toBe(false)
     expect(result.current.error).toBe('Dados inválidos do servidor')
     expect(result.current.isSuccess).toBe(false)
-    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(submitSpy).toHaveBeenCalledTimes(1)
   })
 })

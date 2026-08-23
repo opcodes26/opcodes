@@ -4,21 +4,22 @@
   /* Declaração de suporte a color schemes (evita FOUC e ajusta scrollbars nativas) */
   color-scheme: dark;
 
-  /* Raw Colors - Design System OP Codes */
-  --raw-bg-base: #08090A;
-  --raw-bg-surface: #121417;
-  --raw-bg-surface-hover: #1A1D22;
+  /* Raw Colors - Design System OP Codes (Option 2: Electric Cyan & Indigo / Raycast Style) */
+  --raw-bg-base: #08090C;
+  --raw-bg-surface: #111318;
+  --raw-bg-surface-hover: #181B22;
   
-  --raw-text-primary: #F3F4F6;
-  --raw-text-secondary: #9CA3AF;
+  --raw-text-primary: #FFFFFF;
+  --raw-text-secondary: #A1A1AA;
   
-  --raw-accent-mint: #10B981;
-  --raw-accent-mint-glow: rgba(16, 185, 129, 0.15);
-  --raw-accent-cyan: #06B6D4;
-  --raw-accent-cyan-glow: rgba(6, 182, 212, 0.15);
+  --raw-accent-primary: #3B82F6; /* Electric Blue / Indigo */
+  --raw-accent-primary-glow: rgba(59, 130, 246, 0.2);
+  --raw-accent-secondary: #06B6D4; /* Electric Cyan */
+  --raw-accent-secondary-glow: rgba(6, 182, 212, 0.2);
+  --raw-accent-mint: #06B6D4; /* Map mint alias to Cyan for compatibility */
   
-  --raw-border-subtle: rgba(255, 255, 255, 0.06);
-  --raw-border-interactive: rgba(255, 255, 255, 0.15);
+  --raw-border-subtle: rgba(255, 255, 255, 0.07);
+  --raw-border-interactive: rgba(59, 130, 246, 0.3);
 
   /* Semantic Mappings */
   --color-bg-base: var(--raw-bg-base);
@@ -28,19 +29,19 @@
   --color-text-primary: var(--raw-text-primary);
   --color-text-secondary: var(--raw-text-secondary);
   
-  --color-accent-primary: var(--raw-accent-mint);
-  --color-accent-primary-glow: var(--raw-accent-mint-glow);
-  --color-accent-secondary: var(--raw-accent-cyan);
-  --color-accent-secondary-glow: var(--raw-accent-cyan-glow);
+  --color-accent-primary: var(--raw-accent-primary);
+  --color-accent-primary-glow: var(--raw-accent-primary-glow);
+  --color-accent-secondary: var(--raw-accent-secondary);
+  --color-accent-secondary-glow: var(--raw-accent-secondary-glow);
   
   --color-border: var(--raw-border-subtle);
   --color-border-hover: var(--raw-border-interactive);
 
   /* Glassmorphism Token */
-  --glass-bg: rgba(18, 20, 23, 0.75);
-  --glass-backdrop: blur(12px);
+  --glass-bg: rgba(17, 19, 24, 0.8);
+  --glass-backdrop: blur(14px);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 
   /* Spacing Grid (Sizer) */
   --space-xs: 0.25rem;
@@ -58,7 +59,7 @@
   --color-scrollbar-track: var(--raw-bg-base);
   --color-scrollbar-thumb: var(--raw-bg-surface-hover);
   scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
-  scrollbar-width: auto; /* Para forçar renderização moderna no macOS */
+  scrollbar-width: auto;
 }
 
 @theme {
@@ -69,14 +70,13 @@
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
   
-  --color-accent-mint: var(--raw-accent-mint);
-  --color-accent-cyan: var(--raw-accent-cyan);
-  --color-accent-emerald: #059669;
-  
   --color-accent-primary: var(--color-accent-primary);
   --color-accent-primary-glow: var(--color-accent-primary-glow);
   --color-accent-secondary: var(--color-accent-secondary);
   --color-accent-secondary-glow: var(--color-accent-secondary-glow);
+  --color-accent-mint: var(--raw-accent-mint);
+  --color-accent-cyan: var(--raw-accent-secondary);
+  --color-accent-blue: #3B82F6;
   
   --color-border-subtle: var(--color-border);
   --color-border-interactive: var(--color-border-hover);
@@ -98,10 +98,10 @@ body {
   margin: 0;
   padding: 0;
   min-block-size: 100dvb;
-  overflow-x: clip; /* Evita overflow horizontal indesejado */
+  overflow-x: clip;
 }
 
-/* Custom Scrollbar fallback for older WebKit engines */
+/* Custom Scrollbar fallback */
 @supports not (scrollbar-color: auto) {
   ::-webkit-scrollbar {
     width: 10px;

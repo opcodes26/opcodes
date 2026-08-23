@@ -56,3 +56,9 @@ Thumbs.db
 functions/lib/
 
 .firebase/
+
+# Regras essenciais adicionadas pela automação
+venv/
+.venv/
+__pycache__/
+.next/

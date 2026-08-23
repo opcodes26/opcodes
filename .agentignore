@@ -1,0 +1,42 @@
+# Caches, dependências e artefatos de build
+node_modules/
+venv/
+.venv/
+__pycache__/
+.next/
+dist/
+build/
+coverage/
+.turbo/
+.cache/
+*.pyc
+*.pyo
+
+# Binários pesados, mídias, bancos de dados e arquivos comprimidos
+*.so
+*.dylib
+*.dll
+*.exe
+*.zip
+*.tar.gz
+*.7z
+*.mp4
+*.mov
+*.avi
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.ico
+*.sqlite
+*.db
+*.pack
+*.idx
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key

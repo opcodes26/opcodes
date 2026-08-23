@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { z } from 'zod'
+import { submitLead } from '../lib/supabase'
 
 export const proposalSchema = z.object({
   name: z.string().min(2, 'O nome deve ter pelo menos 2 caracteres'),
@@ -30,27 +31,18 @@ export function useSubmitProposal() {
     setIsSuccess(false)
 
     try {
-      // Validate schema
       proposalSchema.parse(data)
 
-      const functionsUrl = import.meta.env.VITE_FIREBASE_FUNCTIONS_URL || 'http://127.0.0.1:5001/opcodes-lp-placeholder/us-central1/submitProposal'
-
-      const response = await fetch(functionsUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      const res = await submitLead({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        project_type: data.process,
+        message: data.description,
       })
 
-      if (!response.ok) {
-        const errData = await response.json().catch(() => ({}))
-        throw new Error(errData.error || `Erro de rede: ${response.status}`)
-      }
-
-      const result = await response.json()
-      if (!result.success) {
-        throw new Error(result.error || 'Erro ao enviar proposta')
+      if (!res.success) {
+        throw new Error(res.error || 'Erro ao gravar lead no banco.')
       }
 
       setIsSuccess(true)
