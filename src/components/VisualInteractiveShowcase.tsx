@@ -176,19 +176,19 @@ export function VisualInteractiveShowcase() {
               {/* Metrics Visual Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <Card className="p-4 bg-[#0e1015] border-white/[0.08]" hoverEffect={false}>
-                  <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                    -85%
+                  <div className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    &lt; 1.2s
                   </div>
                   <div className="text-[11px] font-mono text-text-secondary uppercase mt-1">
-                    Tempo de Triagem N1
+                    Inferência Gemini 2.5 Flash
                   </div>
                 </Card>
                 <Card className="p-4 bg-[#0e1015] border-white/[0.08]" hoverEffect={false}>
-                  <div className="text-3xl font-extrabold text-cyan-300">
-                    98.4%
+                  <div className="text-2xl md:text-3xl font-extrabold text-cyan-300">
+                    JSON Schema
                   </div>
                   <div className="text-[11px] font-mono text-text-secondary uppercase mt-1">
-                    Acurácia de Roteamento
+                    Validação Estrita Pydantic
                   </div>
                 </Card>
               </div>
@@ -288,19 +288,19 @@ export function VisualInteractiveShowcase() {
               {/* Metrics Visual Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <Card className="p-4 bg-[#0e1015] border-white/[0.08]" hoverEffect={false}>
-                  <div className="text-3xl font-extrabold text-cyan-400">
-                    0
+                  <div className="text-2xl md:text-3xl font-extrabold text-cyan-400">
+                    SNMP v2/v3
                   </div>
                   <div className="text-[11px] font-mono text-text-secondary uppercase mt-1">
-                    Paradas por Falta de Suprimento
+                    Protocolo de Coleta
                   </div>
                 </Card>
                 <Card className="p-4 bg-[#0e1015] border-white/[0.08]" hoverEffect={false}>
-                  <div className="text-3xl font-extrabold text-blue-400">
-                    100%
+                  <div className="text-2xl md:text-3xl font-extrabold text-blue-400">
+                    Webhook ERP
                   </div>
                   <div className="text-[11px] font-mono text-text-secondary uppercase mt-1">
-                    Integração ERP / Faturamento
+                    Disparo Automático de Pedido
                   </div>
                 </Card>
               </div>
