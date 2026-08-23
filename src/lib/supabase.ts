@@ -32,14 +32,14 @@ export interface LeadSubmission {
   message: string
 }
 
-// Dados de fallback para renderização instantânea (Sem dados inflados ou links quebrados)
+// Dados de fallback para renderização instantânea (Com histórico real e fiel)
 export const FALLBACK_PROJECTS: Project[] = [
   {
     slug: 'itsm-ai-classifier',
-    title: 'ITSM AI Classifier — Triagem & Roteamento Cognitivo de Incidentes',
+    title: 'ITSM Ticket Intelligence — Mineração de Causa-Raiz & Análise de Incidentes',
     category: 'ai_agents',
-    short_description: 'Microsserviço em Python/FastAPI que recebe payloads de incidentes, executa classificação semântica com Gemini 2.5 Flash e categoriza squad e criticidade via schema JSON estruturado.',
-    tech_stack: ['Python', 'Gemini 2.5 Flash', 'FastAPI', 'PostgreSQL', 'Docker', 'Webhooks'],
+    short_description: 'Higienização e análise semântica de bases históricas de chamados não estruturados com LLM, identificando falhas recorrentes e gerando diagnósticos para que a TI atue na causa-raiz antes do chamado reincidir.',
+    tech_stack: ['Python', 'Pandas', 'Gemini 2.5 Flash', 'NLP', 'Data Cleaning', 'PostgreSQL'],
     github_url: 'https://github.com/opcodes26/itsm-classifier-core',
     demo_url: '#cases-visuais',
     is_featured: true,
@@ -47,10 +47,10 @@ export const FALLBACK_PROJECTS: Project[] = [
   },
   {
     slug: 'iot-fleet-telemetry',
-    title: 'IoT Telemetry Engine — Monitoramento Preditivo de Suprimentos & Hardware',
+    title: 'Automação de Faturamento & Conciliação de Notas de Outsourcing',
     category: 'automation',
-    short_description: 'Arquitetura de coleta de contadores e níveis de suprimentos via protocolo SNMP com projeção de consumo e integração a webhooks de faturamento.',
-    tech_stack: ['Python', 'SNMP Telemetry', 'PostgreSQL Timescale', 'n8n Workflows', 'ERP Sync'],
+    short_description: 'Eliminação do trabalho manual de analistas que transcreviam notas e faturas para Excel. Pipeline de extração estruturada de dados de faturamento e conciliação automática com relatórios de contadores.',
+    tech_stack: ['Python', 'OCR & PDF Parsing', 'PostgreSQL', 'Excel/Sheets API', 'Pandas'],
     github_url: 'https://github.com/opcodes26/iot-telemetry-engine',
     demo_url: '#cases-visuais',
     is_featured: true,
