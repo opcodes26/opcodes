@@ -5,6 +5,7 @@ import { Card } from './components/ui/Card'
 import { ContactForm } from './components/ContactForm'
 import { HeroTerminal } from './components/HeroTerminal'
 import { ProjectShowcase } from './components/ProjectShowcase'
+import { VisualInteractiveShowcase } from './components/VisualInteractiveShowcase'
 import {
   Terminal as TerminalIcon,
   MessageSquare,
@@ -67,7 +68,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-bg-base text-text-primary selection:bg-accent-mint/30 selection:text-accent-mint overflow-x-hidden antialiased">
+    <div className="min-h-screen bg-bg-base text-text-primary selection:bg-cyan-500/30 selection:text-cyan-300 overflow-x-hidden antialiased">
       {/* Background Grid Lines Overlay */}
       <div 
         className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" 
@@ -75,15 +76,15 @@ export default function App() {
       />
 
       {/* Glow Top Left */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-accent-mint/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-600/5 blur-[120px] pointer-events-none" />
       {/* Glow Center Right */}
-      <div className="absolute top-[40%] right-10 w-[600px] h-[600px] rounded-full bg-accent-cyan/5 blur-[140px] pointer-events-none" />
+      <div className="absolute top-[40%] right-10 w-[600px] h-[600px] rounded-full bg-cyan-500/5 blur-[140px] pointer-events-none" />
 
       {/* Navbar */}
       <header className="sticky top-0 z-50 w-full border-b border-white/[0.06] bg-bg-base/70 backdrop-blur-md">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 font-mono font-bold text-sm tracking-tight text-white group">
-            <span className="bg-accent-mint/10 border border-accent-mint/30 text-accent-mint px-2.5 py-0.5 rounded text-xs transition-colors group-hover:bg-accent-mint/20">
+            <span className="bg-gradient-to-r from-blue-600/20 to-cyan-500/20 border border-cyan-400/30 text-cyan-300 px-2.5 py-0.5 rounded text-xs transition-colors group-hover:brightness-125">
               OP Codes
             </span>
             <span className="opacity-90 font-mono text-xs text-text-secondary">// Systems Lab</span>
@@ -91,11 +92,11 @@ export default function App() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#showcase" className="text-xs font-mono uppercase tracking-wider text-accent-mint hover:text-white transition-colors">
+            <a href="#showcase" className="text-xs font-mono uppercase tracking-wider text-cyan-300 hover:text-white transition-colors">
               // Portfólio
             </a>
-            <a href="#tecnologias" className="text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-text-primary transition-colors">
-              // Tecnologias
+            <a href="#cases-visuais" className="text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-cyan-300 transition-colors">
+              // Motores em Ação
             </a>
             <a href="#case-harmofin" className="text-xs font-mono uppercase tracking-wider text-text-secondary hover:text-text-primary transition-colors">
               // Case Harmofin
@@ -239,6 +240,11 @@ export default function App() {
 
         {/* Section: Dynamic Project Showcase & Live Portfolio */}
         <ProjectShowcase />
+
+        <hr className="border-white/[0.04] my-12" />
+
+        {/* Section: Interactive Visual Motors (ITSM & Telemetry) */}
+        <VisualInteractiveShowcase />
 
         <hr className="border-white/[0.04] my-12" />
 
